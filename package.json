@@ -2,7 +2,7 @@
   "name": "oomph-state-machine",
   "version": "0.0.0",
   "description": "State Machine for oomph",
-  "main": "gulpfile.js",
+  "main": "lib/index.js",
   "license": "Apache-2.0",
   "devDependencies": {
     "coffee-script": "^1.9.1",
