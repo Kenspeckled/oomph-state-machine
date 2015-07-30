@@ -26,6 +26,6 @@
   "homepage": "https://github.com/Kenspeckled/oomph-state-machine",
   "dependencies": {
     "lodash": "~3.5.0",
-    "promise": "^7.0.1"
+    "promise": "^7.0.3"
   }
 }

@@ -1,3 +1,5 @@
+Promise = require 'promise'
+
 stateMachineMethods =
 
   currentState: ->
@@ -14,8 +16,22 @@ stateMachineMethods =
     @constructor._states[oldState].hasOwnProperty(newState)
 
   transitionStateTo: (newState) ->
-    if @canTransitionStateTo(newState)
-      this[@constructor._stateAttribute] = newState
+    oldState = @currentState()
+    if !@canTransitionStateTo(newState)
+      throw new Error 'Cannot transition state from ' + oldState + ' to ' + newState
+    stateCallbacks = @constructor._states[oldState][newState]
+    if stateCallbacks and Object.prototype.toString.call( stateCallbacks ) == '[object Array]' and stateCallbacks.length > 0
+      returnArray = []
+      stateCallbacks.forEach (fn) =>
+        returnArray.push fn.call(this)
+      Promise.all(returnArray).then =>
+        this[@constructor._stateAttribute] = newState
+        return this
+    else
+      new Promise (resolve) =>
+        this[@constructor._stateAttribute] = newState
+        resolve(this)
+
 
 stateMachine =
 
