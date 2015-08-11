@@ -2,14 +2,13 @@
   "name": "oomph-state-machine",
   "version": "0.0.0",
   "description": "State Machine for oomph",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "license": "Apache-2.0",
   "devDependencies": {
     "coffee-script": "^1.9.1",
     "gulp": "^3.8.11",
     "jasmine": "^2.3.1",
-    "gulp-jasmine": "^2.0.1",
-    "lodash": "~3.5.0"
+    "gulp-jasmine": "^2.0.1"
   },
   "scripts": {
     "test": "jasmine",

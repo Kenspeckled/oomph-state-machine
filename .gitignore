@@ -4,4 +4,3 @@ node_modules/
 tmp/
 *.swp
 *.rdb
-lib/
